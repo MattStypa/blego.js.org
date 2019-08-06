@@ -9,7 +9,7 @@
   "scripts": {
     "clean": "rm -rf docs",
     "copy": "cp -r src/static docs",
-    "css": "postcss src/styles/styles.css -o docs/styles.css",
+    "css": "rm docs/styles.css && postcss src/styles/styles.css -o docs/styles.css",
     "build": "npm run clean && npm run copy && npm run css"
   }
 }
