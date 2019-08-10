@@ -2,8 +2,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'green-blego': '#4CBB17',
-        'green-blego-dark': '#006F00',
+        'green-blego-light': '#4CBB17',
+        'green-blego': '#006F00',
       },
     },
   },
