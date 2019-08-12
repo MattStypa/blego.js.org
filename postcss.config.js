@@ -5,13 +5,15 @@ const tailwind = require('tailwindcss');
 
 module.exports = (ctx) => {
   const isProd = ctx.env !== 'dev';
-  const plugins = [tailwind, autoprefixer];
+
   const purgeCssPlugin = purgecss({
     content: ['./src/static/**/*.html'],
     defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || [],
   });
 
-  isProd && (plugins.concat([purgeCssPlugin, cssnano]));
+  const plugins = isProd
+    ? [tailwind, autoprefixer, purgeCssPlugin, cssnano]
+    : [tailwind, autoprefixer];
 
   return {plugins};
 }
