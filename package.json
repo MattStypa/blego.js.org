@@ -8,7 +8,7 @@
   },
   "scripts": {
     "clean": "rm -rf docs",
-    "copy": "cp -r src/static docs",
+    "copy": "cp -r src/static/ docs && cp -r src/favicon/ docs",
     "devcss": "postcss src/styles/styles.css -o src/static/styles.css --env dev",
     "css": "rm docs/styles.css && postcss src/styles/styles.css -o docs/styles.css",
     "build": "npm run clean && npm run copy && npm run css"
