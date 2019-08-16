@@ -33,4 +33,4 @@ function inspire() {
   document.getElementById('title').textContent = randomFromArray(messages);
 }
 
-document.getElementById('header').addEventListener('click', inspire);
+document.getElementById('logo').addEventListener('click', inspire);
