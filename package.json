@@ -4,14 +4,17 @@
     "@fullhuman/postcss-purgecss": "^1.2.0",
     "cssnano": "^4.1.10",
     "postcss-cli": "^6.1.3",
-    "tailwindcss": "^1.0.5"
+    "tailwindcss": "^1.0.5",
+    "uglify-js": "^3.6.0"
   },
   "scripts": {
+    "css.dev": "postcss src/styles/styles.css -o src/static/styles.css --env dev",
+    "open": "open src/static/index.html",
     "clean": "rm -rf docs",
     "copy": "cp -r src/static/ docs && cp -r src/favicon/ docs",
-    "devcss": "postcss src/styles/styles.css -o src/static/styles.css --env dev",
-    "css": "rm docs/styles.css && postcss src/styles/styles.css -o docs/styles.css",
-    "build": "npm run clean && npm run copy && npm run css",
-    "open": "open src/static/index.html"
+    "css": "rm -f docs/styles.css && postcss src/styles/styles.css -o docs/styles.css",
+    "js": "rm -f docs/scripts.js && uglifyjs src/static/scripts.js -o docs/scripts.js -m -c",
+    "open.prod": "open docs/index.html",
+    "build": "npm run clean && npm run copy && npm run css && npm run js && npm run open.prod"
   }
 }
